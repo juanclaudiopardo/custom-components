@@ -1,51 +1,44 @@
-# Welcome to your Expo app 👋
+# React Native Customizable Components
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A collection of **fully customizable React Native components** built with TypeScript and Expo compatibility. These components are designed to save development time while following best practices and maintaining high code quality.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- **Fully Typed** - Complete TypeScript support
+- **Expo Compatible** - Works seamlessly with Expo projects
+- **Customizable** - Easy to adapt to your design system
+- **Production Ready** - Built with best practices in mind
+- **Accessible** - Accessibility considerations included
+- **Lightweight** - Minimal dependencies
 
-   ```bash
-   npm install
-   ```
+## 📦 Current Components
 
-2. Start the app
+### Button Component
 
-   ```bash
-   npx expo start
-   ```
+A versatile button component with multiple variants, sizes, and states.
 
-In the output, you'll find options to open the app in a
+#### Features
+- ✅ Multiple variants: `default`, `outline`, `ghost`
+- ✅ Three sizes: `small`, `medium`, `large`
+- ✅ Loading states with customizable spinners
+- ✅ Icon support (left/right positioning)
+- ✅ Disabled states
+- ✅ Fully customizable styling
+- ✅ TypeScript support
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Video
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+https://github.com/user-attachments/assets/335d3c0d-95c7-41a1-a673-0b3c53ee9afe
 
-When you're ready, run:
+🔮 Coming Soon
+More components will be added as I find time, including:
 
-```bash
-npm run reset-project
-```
+Input/TextInput components
+Modal components
+Card components
+Loading indicators
+And more...
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Built with ❤️ for the React Native community.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# custom-components
