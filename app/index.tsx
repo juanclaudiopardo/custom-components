@@ -1,15 +1,18 @@
-import { Text, View } from "react-native";
+import Button from '@/components/button';
+import { Link } from 'expo-router';
+import { View } from 'react-native';
 
 export default function Index() {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 16,
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Link href='/button' asChild>
+        <Button title='Go to Button Components' />
+      </Link>
     </View>
   );
 }
