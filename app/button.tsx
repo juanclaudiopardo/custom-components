@@ -81,14 +81,12 @@ export default function ButtonPage() {
             onPress={() => console.log('Edit button pressed')}
           />
 
-          {/* Botón ghost con icono */}
           <Button
             title='Download'
             rightIcon={<Ionicons name='share' size={20} color='#FFFFFF' />}
             onPress={() => console.log('Download button pressed')}
           />
 
-          {/* Botón con loading (los iconos desaparecen) */}
           <Button
             title='Process'
             variant='ghost'

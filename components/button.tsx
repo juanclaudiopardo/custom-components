@@ -10,10 +10,10 @@ import {
   ViewStyle,
 } from 'react-native';
 
-// Definimos las variantes del botón usando discriminated unions
+// Define button variants using discriminated unions
 type ButtonVariant = 'default' | 'outline' | 'ghost';
 
-// Props específicas del botón
+// Button-specific props
 interface BaseButtonProps {
   title: string;
   variant?: ButtonVariant;
@@ -21,11 +21,11 @@ interface BaseButtonProps {
   disabled?: boolean;
   loading?: boolean;
   spinnerColor?: string;
-  leftIcon?: React.ReactNode; // ✅ Nueva prop para icono izquierdo
-  rightIcon?: React.ReactNode; // ✅ Nueva prop para icono derecho
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 }
 
-// Extendemos las props de Pressable usando intersection types
+// Extend Pressable props using intersection types
 type ButtonProps = BaseButtonProps &
   Omit<PressableProps, 'style' | 'disabled'> & {
     style?: ViewStyle;
@@ -39,23 +39,23 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   loading = false,
   spinnerColor,
-  leftIcon, // ✅ Nueva prop
-  rightIcon, // ✅ Nueva prop
+  leftIcon,
+  rightIcon,
   style,
   titleStyle,
   ...pressableProps
 }) => {
-  // El botón está funcionalmente deshabilitado si disabled es true o si loading es true
+  // Button is functionally disabled if disabled is true or if loading is true
   const isDisabled = disabled || loading;
 
-  // Función para obtener los estilos del botón según la variante
+  // Function to get button styles based on variant
   const getButtonStyles = (pressed: boolean): ViewStyle[] => {
     const baseStyles: ViewStyle[] = [styles.baseButton, styles[`size_${size}`]];
 
-    // Solo aplicar pressed si no está deshabilitado funcionalmente
+    // Only apply pressed if not functionally disabled
     if (pressed && !isDisabled) baseStyles.push(styles.pressed);
 
-    // Solo aplicar estilos de disabled cuando disabled es true (no cuando loading es true)
+    // Only apply disabled styles when disabled is true (not when loading is true)
     if (disabled) baseStyles.push(styles.disabled);
 
     switch (variant) {
@@ -79,14 +79,14 @@ const Button: React.FC<ButtonProps> = ({
     return baseStyles;
   };
 
-  // Función para obtener los estilos del texto según la variante
+  // Function to get text styles based on variant
   const getTextStyles = (): TextStyle[] => {
     const baseTextStyles: TextStyle[] = [
       styles.baseText,
       styles[`text_${size}`],
     ];
 
-    // Solo aplicar estilos de disabled cuando disabled es true (no cuando loading es true)
+    // Only apply disabled styles when disabled is true (not when loading is true)
     if (disabled) baseTextStyles.push(styles.disabledText);
 
     switch (variant) {
@@ -107,18 +107,18 @@ const Button: React.FC<ButtonProps> = ({
     return baseTextStyles;
   };
 
-  // Función para obtener el color del spinner según la variante
+  // Function to get spinner color based on variant
   const getSpinnerColor = (): string => {
-    // Si se proporciona spinnerColor personalizado, usarlo
+    // If custom spinnerColor is provided, use it
     if (spinnerColor) {
       return spinnerColor;
     }
 
-    // Color por defecto es blanco
+    // Default color is white
     return '#FFFFFF';
   };
 
-  // ✅ Función para obtener el espaciado del icono según el tamaño
+  // ✅ Function to get icon spacing based on size
   const getIconSpacing = (): number => {
     switch (size) {
       case 'small':
@@ -141,7 +141,7 @@ const Button: React.FC<ButtonProps> = ({
           <ActivityIndicator color={getSpinnerColor()} />
         ) : (
           <>
-            {/* ✅ Icono izquierdo */}
+            {/* Left icon */}
             {leftIcon && (
               <View
                 style={[
@@ -153,10 +153,10 @@ const Button: React.FC<ButtonProps> = ({
               </View>
             )}
 
-            {/* ✅ Título del botón */}
+            {/*  Button title */}
             <Text style={[...getTextStyles(), titleStyle]}>{title}</Text>
 
-            {/* ✅ Icono derecho */}
+            {/*  Right icon */}
             {rightIcon && (
               <View
                 style={[styles.iconContainer, { marginLeft: getIconSpacing() }]}
@@ -172,7 +172,7 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 const styles = StyleSheet.create({
-  // Estilos base
+  // Base styles
   baseButton: {
     borderRadius: 8,
     alignItems: 'center',
@@ -195,13 +195,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  // ✅ Nuevo estilo para contenedor de iconos
+  // ✅ New style for icon container
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  // Tamaños
+  // Sizes
   size_small: {
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     minHeight: 56,
   },
 
-  // Tamaños de texto
+  // Text sizes
   text_small: {
     fontSize: 14,
     lineHeight: 16,
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 
-  // Variante Default
+  // Default variant
   defaultButton: {
     backgroundColor: '#007AFF',
     borderColor: '#007AFF',
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 
-  // Variante Outline
+  // Outline variant
   outlineButton: {
     backgroundColor: 'transparent',
     borderColor: '#007AFF',
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
     color: '#B0B0B0',
   },
 
-  // Variante Ghost
+  // Ghost variant
   ghostButton: {
     backgroundColor: 'transparent',
     borderColor: 'transparent',
@@ -289,9 +289,9 @@ const styles = StyleSheet.create({
     color: '#B0B0B0',
   },
 
-  // Estados globales
+  // Global states
   disabledText: {
-    // Aplicado a todos los tipos cuando están deshabilitados
+    // Applied to all types when disabled
   },
 });
 
