@@ -21,6 +21,8 @@ interface BaseButtonProps {
   disabled?: boolean;
   loading?: boolean;
   spinnerColor?: string;
+  leftIcon?: React.ReactNode; // ✅ Nueva prop para icono izquierdo
+  rightIcon?: React.ReactNode; // ✅ Nueva prop para icono derecho
 }
 
 // Extendemos las props de Pressable usando intersection types
@@ -37,6 +39,8 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   loading = false,
   spinnerColor,
+  leftIcon, // ✅ Nueva prop
+  rightIcon, // ✅ Nueva prop
   style,
   titleStyle,
   ...pressableProps
@@ -48,27 +52,27 @@ const Button: React.FC<ButtonProps> = ({
   const getButtonStyles = (pressed: boolean): ViewStyle[] => {
     const baseStyles: ViewStyle[] = [styles.baseButton, styles[`size_${size}`]];
 
-    // ✅ Solo aplicar pressed si no está deshabilitado funcionalmente
+    // Solo aplicar pressed si no está deshabilitado funcionalmente
     if (pressed && !isDisabled) baseStyles.push(styles.pressed);
 
-    // ✅ Solo aplicar estilos de disabled cuando disabled es true (no cuando loading es true)
+    // Solo aplicar estilos de disabled cuando disabled es true (no cuando loading es true)
     if (disabled) baseStyles.push(styles.disabled);
 
     switch (variant) {
       case 'outline':
         baseStyles.push(styles.outlineButton);
         if (pressed && !isDisabled) baseStyles.push(styles.outlinePressed);
-        if (disabled) baseStyles.push(styles.outlineDisabled); // ✅ Solo cuando disabled, no loading
+        if (disabled) baseStyles.push(styles.outlineDisabled);
         break;
       case 'ghost':
         baseStyles.push(styles.ghostButton);
         if (pressed && !isDisabled) baseStyles.push(styles.ghostPressed);
-        if (disabled) baseStyles.push(styles.ghostDisabled); // ✅ Solo cuando disabled, no loading
+        if (disabled) baseStyles.push(styles.ghostDisabled);
         break;
       default:
         baseStyles.push(styles.defaultButton);
         if (pressed && !isDisabled) baseStyles.push(styles.defaultPressed);
-        if (disabled) baseStyles.push(styles.defaultDisabled); // ✅ Solo cuando disabled, no loading
+        if (disabled) baseStyles.push(styles.defaultDisabled);
         break;
     }
 
@@ -82,21 +86,21 @@ const Button: React.FC<ButtonProps> = ({
       styles[`text_${size}`],
     ];
 
-    // ✅ Solo aplicar estilos de disabled cuando disabled es true (no cuando loading es true)
+    // Solo aplicar estilos de disabled cuando disabled es true (no cuando loading es true)
     if (disabled) baseTextStyles.push(styles.disabledText);
 
     switch (variant) {
       case 'outline':
         baseTextStyles.push(styles.outlineText);
-        if (disabled) baseTextStyles.push(styles.outlineDisabledText); // ✅ Solo cuando disabled, no loading
+        if (disabled) baseTextStyles.push(styles.outlineDisabledText);
         break;
       case 'ghost':
         baseTextStyles.push(styles.ghostText);
-        if (disabled) baseTextStyles.push(styles.ghostDisabledText); // ✅ Solo cuando disabled, no loading
+        if (disabled) baseTextStyles.push(styles.ghostDisabledText);
         break;
       default:
         baseTextStyles.push(styles.defaultText);
-        if (disabled) baseTextStyles.push(styles.defaultDisabledText); // ✅ Solo cuando disabled, no loading
+        if (disabled) baseTextStyles.push(styles.defaultDisabledText);
         break;
     }
 
@@ -114,17 +118,53 @@ const Button: React.FC<ButtonProps> = ({
     return '#FFFFFF';
   };
 
+  // ✅ Función para obtener el espaciado del icono según el tamaño
+  const getIconSpacing = (): number => {
+    switch (size) {
+      case 'small':
+        return 6;
+      case 'large':
+        return 10;
+      default:
+        return 8;
+    }
+  };
+
   return (
     <Pressable
       {...pressableProps}
-      disabled={isDisabled} // ✅ Funcionalmente deshabilitado cuando disabled O loading
+      disabled={isDisabled}
       style={({ pressed }) => [...getButtonStyles(pressed), style]}
     >
       <View style={styles.buttonContent}>
         {loading ? (
           <ActivityIndicator color={getSpinnerColor()} />
         ) : (
-          <Text style={[...getTextStyles(), titleStyle]}>{title}</Text>
+          <>
+            {/* ✅ Icono izquierdo */}
+            {leftIcon && (
+              <View
+                style={[
+                  styles.iconContainer,
+                  { marginRight: getIconSpacing() },
+                ]}
+              >
+                {leftIcon}
+              </View>
+            )}
+
+            {/* ✅ Título del botón */}
+            <Text style={[...getTextStyles(), titleStyle]}>{title}</Text>
+
+            {/* ✅ Icono derecho */}
+            {rightIcon && (
+              <View
+                style={[styles.iconContainer, { marginLeft: getIconSpacing() }]}
+              >
+                {rightIcon}
+              </View>
+            )}
+          </>
         )}
       </View>
     </Pressable>
@@ -152,6 +192,11 @@ const styles = StyleSheet.create({
   },
   buttonContent: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  // ✅ Nuevo estilo para contenedor de iconos
+  iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
   },
