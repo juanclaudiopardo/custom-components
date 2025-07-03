@@ -94,6 +94,31 @@ export default function ButtonPage() {
             onPress={() => console.log('Process button pressed')}
           />
         </View>
+        <Text style={{ marginVertical: 8 }}>
+          Buttons with flex direction row
+        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            gap: 8,
+            marginTop: 16,
+          }}
+        >
+          <Button
+            title='Edit'
+            variant='outline'
+            leftIcon={<Ionicons name='pencil' size={18} color='#007AFF' />}
+            onPress={() => console.log('Edit button pressed')}
+            style={{ flex: 1 }}
+          />
+
+          <Button
+            title='Download'
+            rightIcon={<Ionicons name='share' size={20} color='#FFFFFF' />}
+            onPress={() => console.log('Download button pressed')}
+            style={{ flex: 1 }}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
