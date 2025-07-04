@@ -26,19 +26,29 @@ A versatile button component with multiple variants, sizes, and states.
 - ✅ Fully customizable styling
 - ✅ TypeScript support
 
+### Input Component
+
+A comprehensive input component with advanced features and customization options.
+
+**Features**
+* ✅ Label and error message support
+* ✅ Icon support (left/right positioning with press handlers)
+* ✅ Disabled and error states
+* ✅ TextArea support (multiline)
+* ✅ Fully customizable styling (container, input, label, error)
+* ✅ Forward ref support
+* ✅ TypeScript support
+* ✅ Extends all TextInput props
+
 ### Video
 
 
 https://github.com/user-attachments/assets/335d3c0d-95c7-41a1-a673-0b3c53ee9afe
+https://github.com/user-attachments/assets/f69bd8a7-8409-4db0-9b72-1850988b0f6f
+
 
 🔮 Coming Soon
 More components will be added as I find time, including:
-
-Input/TextInput components
-Modal components
-Card components
-Loading indicators
-And more...
 
 Built with ❤️ for the React Native community.
 
