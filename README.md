@@ -44,7 +44,6 @@ A comprehensive input component with advanced features and customization options
 
 
 https://github.com/user-attachments/assets/335d3c0d-95c7-41a1-a673-0b3c53ee9afe
-https://github.com/user-attachments/assets/f69bd8a7-8409-4db0-9b72-1850988b0f6f
 
 
 🔮 Coming Soon
