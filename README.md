@@ -46,6 +46,10 @@ A comprehensive input component with advanced features and customization options
 https://github.com/user-attachments/assets/335d3c0d-95c7-41a1-a673-0b3c53ee9afe
 
 
+https://github.com/user-attachments/assets/08add49c-1d4a-4d9a-aede-94b3d4f56cc5
+
+
+
 🔮 Coming Soon
 More components will be added as I find time, including:
 
