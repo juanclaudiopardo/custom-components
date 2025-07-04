@@ -8,10 +8,14 @@ export default function Index() {
       style={{
         flex: 1,
         padding: 16,
+        gap: 16,
       }}
     >
       <Link href='/button' asChild>
         <Button title='Go to Button Components' />
+      </Link>
+      <Link href='/input' asChild>
+        <Button title='Go to Input Components' />
       </Link>
     </View>
   );
