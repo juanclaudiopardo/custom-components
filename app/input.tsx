@@ -2,7 +2,7 @@
 import Input from '@/components/input';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, View, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function InputPage() {
@@ -10,6 +10,15 @@ export default function InputPage() {
   const [password, setPassword] = useState('');
   const [search, setSearch] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  const showIconAlert = (iconType: string) => {
+    Alert.alert('Icon Pressed', `${iconType} icon was pressed with haptic feedback!`);
+  };
+
+  const clearSearch = () => {
+    setSearch('');
+    showIconAlert('Clear');
+  };
 
   return (
     <SafeAreaView
@@ -34,6 +43,11 @@ export default function InputPage() {
             value={search}
             onChangeText={setSearch}
             leftIcon={<Ionicons name='search' size={20} color='#9CA3AF' />}
+            rightIcon={search ? <Ionicons name='close' size={20} color='#9CA3AF' /> : undefined}
+            onRightIconPress={search ? clearSearch : undefined}
+            enableHaptics
+            accessibilityLabel='Search input field'
+            accessibilityHint='Enter text to search, tap X to clear'
           />
 
           <Input
@@ -45,6 +59,9 @@ export default function InputPage() {
             keyboardType='email-address'
             autoCapitalize='none'
             leftIcon={<Ionicons name='mail' size={20} color='#9CA3AF' />}
+            enableHaptics
+            accessibilityLabel='Email input field'
+            accessibilityHint='Enter your email address'
           />
 
           <Input
@@ -61,6 +78,9 @@ export default function InputPage() {
               />
             }
             onRightIconPress={() => setShowPassword(!showPassword)}
+            enableHaptics
+            accessibilityLabel='Password input field'
+            accessibilityHint={`Password is currently ${showPassword ? 'visible' : 'hidden'}, tap eye to toggle`}
           />
         </View>
 
@@ -70,6 +90,7 @@ export default function InputPage() {
             placeholder='Disabled input'
             label='Disabled'
             editable={false}
+            accessibilityHint='This input field is disabled'
           />
           <Input
             placeholder='With error'
@@ -78,6 +99,10 @@ export default function InputPage() {
             rightIcon={
               <Ionicons name='alert-circle' size={20} color='#EF4444' />
             }
+            onRightIconPress={() => showIconAlert('Error')}
+            enableHaptics
+            accessibilityLabel='Input with error state'
+            accessibilityHint='This field has a validation error'
           />
           <Text style={{ marginVertical: 16, textAlign: 'center' }}>
             TextArea
@@ -88,6 +113,8 @@ export default function InputPage() {
             multiline
             numberOfLines={4}
             inputStyle={{ height: 100, textAlignVertical: 'top' }}
+            accessibilityLabel='Comments text area'
+            accessibilityHint='Multi-line text input for comments'
           />
         </View>
       </ScrollView>

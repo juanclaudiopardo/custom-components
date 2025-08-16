@@ -41,6 +41,19 @@ export default function RootLayout() {
           headerBackButtonDisplayMode: 'minimal',
         }}
       />
+      <Stack.Screen
+        name='divider'
+        options={{
+          title: 'Dividers',
+          headerStyle: {
+            backgroundColor: '#f8f9fa',
+          },
+          headerTitleStyle: {
+            color: '#343a40',
+          },
+          headerBackButtonDisplayMode: 'minimal',
+        }}
+      />
     </Stack>
   );
 }

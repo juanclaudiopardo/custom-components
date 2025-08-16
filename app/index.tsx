@@ -17,6 +17,9 @@ export default function Index() {
       <Link href='/input' asChild>
         <Button title='Go to Input Components' />
       </Link>
+      <Link href='/divider' asChild>
+        <Button title='Go to Divider Components' />
+      </Link>
     </View>
   );
 }

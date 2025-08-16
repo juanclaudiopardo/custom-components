@@ -15,16 +15,22 @@ export default function ButtonPage() {
           <Button
             title='Button Default'
             onPress={() => console.log('Button Default pressed')}
+            enableHaptics
+            accessibilityHint='Toca para ver el comportamiento del botón predeterminado'
           />
           <Button
             title='Button Outline'
             variant='outline'
             onPress={() => console.log('Button Outline pressed')}
+            enableHaptics
+            accessibilityHint='Toca para ver el comportamiento del botón outline'
           />
           <Button
             title='Button Ghost'
             variant='ghost'
             onPress={() => console.log('Button Ghost pressed')}
+            enableHaptics
+            accessibilityHint='Toca para ver el comportamiento del botón ghost'
           />
         </View>
         <Text style={{ marginVertical: 8 }}>Button Sizes (sm, md, lg)</Text>
