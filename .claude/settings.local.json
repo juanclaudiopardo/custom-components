@@ -3,7 +3,8 @@
     "allow": [
       "Bash(npm run lint)",
       "mcp__ide__getDiagnostics",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []

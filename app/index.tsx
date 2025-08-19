@@ -20,6 +20,9 @@ export default function Index() {
       <Link href='/divider' asChild>
         <Button title='Go to Divider Components' />
       </Link>
+      <Link href='/skeleton' asChild>
+        <Button title='Go to Skeleton Components' />
+      </Link>
     </View>
   );
 }
