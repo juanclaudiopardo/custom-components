@@ -53,7 +53,7 @@ const TOAST_ICONS: Record<ToastType, keyof typeof MaterialIcons.glyphMap> = {
   info: 'info',
 };
 
-export default function toast({
+export default function Toast({
   type,
   title,
   message,
@@ -121,7 +121,7 @@ export default function toast({
         duration: 300,
       });
     }
-  }, [visible, duration, position, onHide]);
+  }, [visible, duration, position, onHide, translateY, opacity, scale]);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {

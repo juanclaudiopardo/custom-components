@@ -26,6 +26,9 @@ export default function Index() {
       <Link href='/toast' asChild>
         <Button title='Go to Toast Components' />
       </Link>
+      <Link href='/modal' asChild>
+        <Button title='Go to Modal Components' />
+      </Link>
     </View>
   );
 }
