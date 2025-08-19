@@ -1,6 +1,6 @@
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Divider } from '@/components/divider';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DividerDemo() {
   return (
@@ -10,32 +10,26 @@ export default function DividerDemo() {
     >
       <ScrollView>
         <Text style={styles.sectionTitle}>Horizontal Dividers</Text>
-        
+
         <Text style={styles.label}>Default Divider</Text>
         <Divider />
-        
-        <Text style={styles.label}>Blue Divider</Text>
-        <Divider color="#007AFF" />
-        
+
+        <Text style={styles.label}>Blue Divider with spacing</Text>
+        <Divider color='#007AFF' spacing={20} />
+
         <Text style={styles.label}>Thick Divider</Text>
-        <Divider color="#FF6B6B" width={3} />
-        
-        <Text style={styles.label}>Inset Left</Text>
-        <Divider color="#4ECDC4" inset insetType="left" />
-        
-        <Text style={styles.label}>Inset Right</Text>
-        <Divider color="#45B7D1" inset insetType="right" />
-        
-        <Text style={styles.label}>Inset Middle</Text>
-        <Divider color="#96CEB4" inset insetType="middle" />
-        
+        <Divider color='#FF6B6B' width={3} />
+
+        <Text style={styles.label}>50 %</Text>
+        <Divider color='#45B7D1' style={{ width: '50%' }} />
+
         <Text style={styles.sectionTitle}>Vertical Dividers</Text>
-        
+
         <View style={styles.verticalContainer}>
           <Text>Left</Text>
-          <Divider orientation="vertical" color="#FF6B6B" />
+          <Divider orientation='vertical' color='#FF6B6B' spacing={10} />
           <Text>Middle</Text>
-          <Divider orientation="vertical" color="#4ECDC4" width={2} />
+          <Divider orientation='vertical' color='#4ECDC4' width={2} spacing={10} />
           <Text>Right</Text>
         </View>
       </ScrollView>
