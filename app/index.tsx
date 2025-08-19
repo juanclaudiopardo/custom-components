@@ -32,6 +32,9 @@ export default function Index() {
       <Link href='/carousel' asChild>
         <Button title='Go to Carousel Components' />
       </Link>
+      <Link href='/badge' asChild>
+        <Button title='Go to Badge Components' />
+      </Link>
     </View>
   );
 }
