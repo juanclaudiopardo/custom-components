@@ -29,6 +29,9 @@ export default function Index() {
       <Link href='/modal' asChild>
         <Button title='Go to Modal Components' />
       </Link>
+      <Link href='/carousel' asChild>
+        <Button title='Go to Carousel Components' />
+      </Link>
     </View>
   );
 }

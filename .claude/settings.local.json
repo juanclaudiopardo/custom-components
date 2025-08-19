@@ -7,7 +7,10 @@
       "Bash(mv:*)",
       "Bash(rm:*)",
       "Bash(cd:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(npm start)",
+      "Bash(npx expo start:*)",
+      "WebFetch(domain:docs.expo.dev)"
     ],
     "deny": [],
     "ask": []
