@@ -51,12 +51,12 @@ npm run reset-project
 ## Component Development Guidelines
 
 When developing new components:
-1. Create component in `/components/` directory
+1. Create component in `/components/` directory using **lowercase names** (e.g., `button.tsx`, `toast.tsx`)
 2. Use TypeScript interfaces with proper prop typing
 3. Extend native React Native component props when appropriate
 4. Implement style composition functions for variant support
 5. Add demo screen in `/app/` directory
-6. Follow existing patterns from Button and Input components
+6. Follow existing patterns from existing components
 
 ## Testing Components
 

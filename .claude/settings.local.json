@@ -4,7 +4,8 @@
       "Bash(npm run lint)",
       "mcp__ide__getDiagnostics",
       "Bash(cd:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

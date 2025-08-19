@@ -23,6 +23,9 @@ export default function Index() {
       <Link href='/skeleton' asChild>
         <Button title='Go to Skeleton Components' />
       </Link>
+      <Link href='/toast' asChild>
+        <Button title='Go to Toast Components' />
+      </Link>
     </View>
   );
 }
